@@ -2,7 +2,7 @@ using TestIssueForMindBox;
 
 namespace UnitTestForCircle
 {
-    public class Tests
+    public class CIrcleTests
     {
         private double eps = 1e-7;
 
