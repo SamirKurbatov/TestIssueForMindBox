@@ -1,11 +1,11 @@
 ﻿namespace TestIssueForMindBox
 {
-    class Circle : IShape
+    public class Circle : IShape
     {
         public const double MinRadius = 1e-6;
         public Circle(double radius)
         {
-            if (radius - MinRadius < GeneralConstants.MinAccurancy)
+            if (radius - MinRadius < GeneralConstants.Accuracy)
                 throw new ArgumentException("Неверно указан радиус круга.", nameof(radius));
 
             Radius = radius;

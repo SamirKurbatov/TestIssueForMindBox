@@ -11,16 +11,16 @@
 
         public Triangle(double sideA, double sideB, double sideC)
         {
-            if (sideA < GeneralConstants.MinAccurancy)
+            if (sideA < GeneralConstants.Accuracy)
                 throw new ArgumentException(triangleSideError, nameof(sideA));
-            if (sideB < GeneralConstants.MinAccurancy)
+            if (sideB < GeneralConstants.Accuracy)
                 throw new ArgumentException(triangleSideError, nameof(sideB));
-            if (sideC < GeneralConstants.MinAccurancy)
+            if (sideC < GeneralConstants.Accuracy)
                 throw new ArgumentException(triangleSideError, nameof(sideC));
 
             var perimetr = sideA + sideB + sideC;
             var maxSide = Math.Max(SideA, Math.Max(sideB, sideC));
-            if ((perimetr - maxSide) - maxSide < GeneralConstants.MinAccurancy)
+            if ((perimetr - maxSide) - maxSide < GeneralConstants.Accuracy)
                 throw new ArgumentException(triangleMaxSiedError);
 
             SideA = sideA;
@@ -29,7 +29,6 @@
 
             _isRightTriangle = new Lazy<bool>(GetIsRightTriangle);
         }
-
 
         public double SideA { get; }
 
@@ -45,17 +44,17 @@
             double maxSide = SideA, 
                    sideB = SideB, 
                    sideC = SideC;
-            if (SideB - maxSide > GeneralConstants.MinAccurancy)
+            if (SideB - maxSide > GeneralConstants.Accuracy)
             {
                 Functions.Swap(ref maxSide, ref sideB);
             }
 
-            if (SideC - maxSide > GeneralConstants.MinAccurancy)
+            if (SideC - maxSide > GeneralConstants.Accuracy)
             {
                 Functions.Swap(ref maxSide, ref sideC);
             }
 
-            return Math.Abs(Math.Pow(maxSide, 2) - Math.Pow(sideB, 2) - Math.Pow(sideC, 2)) < GeneralConstants.MinAccurancy;
+            return Math.Abs(Math.Pow(maxSide, 2) - Math.Pow(sideB, 2) - Math.Pow(sideC, 2)) < GeneralConstants.Accuracy;
         }
 
         public double GetSquare()

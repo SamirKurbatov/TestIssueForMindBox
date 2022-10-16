@@ -2,6 +2,6 @@
 {
     public static class GeneralConstants
     {
-        public static double MinAccurancy { get; } = double.MinValue;
+        public const double Accuracy = 1e-7;
     }
 }
